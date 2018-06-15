@@ -1,6 +1,6 @@
 $(function(){
 	$('.start, svg').click(function(){
-		$('#target').css({
+		$('#target, #target2').css({
 			'transition' 				: '1s transform',
 			'transform' 				: 'rotate(-90deg)',
 			'transform-origin'			: '50% 50%',
@@ -28,7 +28,7 @@ $(function(){
 				$('#bow1').css({
 					'transform'					: 'translateY(-350px)',
 					'animation-timing-function'	: 'lineral',
-					'transition' 				: '1s transform',
+					'transition' 				: '1.5s transform',
 				});
 				$('#l1, #l2').css({
 					'transition' 				: '.75s transform',
@@ -42,63 +42,55 @@ $(function(){
 				});
 				setTimeout(function(){
 					$('#bow1').css({
-						'transform'					: 'translateY(-650px)',
+						'transform'					: 'translateY(-1300px)',
 						'animation-timing-function'	: 'lineral',
 					});
-					$('#l1, #l2').css({
-						'transition' 				: '1s all',
-						'transform' 				: 'translateY(-120px) translateX(5px)',
+					$('#l1, #l2, #r1, #r2').css({
+						'transition' 				: '1.5s all',
+						'transform' 				: 'translateY(-1000px) translateX(5px)',
 						'animation-timing-function'	: 'lineral',
 					});
-					$('#r1, #r2').css({
-						'transition' 				: '1s all',
-						'transform' 				: 'translateY(-120px) translateX(-5px)',
-						'animation-timing-function'	: 'lineral',
-					});
-					$('#r2, #l2').css({
-						'transition' 				: '1s all',
-						'opacity'					: '0',
-						'animation-timing-function'	: 'lineral',
-						'transform' 				: 'translateY(-120px) translateX(-5px) scale3d(.5, .5, 1)',
-					});
-					$('#r1, #l1').css({
-						'transition' 				: '1s all',
-						'animation-timing-function'	: 'lineral',
-						'animation-timing-function'	: 'lineral',
-						'stroke-width'				: '18',
-						'transform' 				: 'translateY(-130px) translateX(6px) scale3d(.5, .5, 1)',
-					});
-						
 					setTimeout(function(){
-						$('#r1, #r2, #l1, #l2, #bow1').css({
-							'opacity'					: '0',
+						$('#l1, #l2, #r1, #r2').css({
+							'transition' 				: '0s all',
+							'opacity' 					: '0',
 						});
+						
 						setTimeout(function(){
-							$('#bow1').css({
-								'transform'					: 'translateY(650px)',
+							$('#r1, #r2, #l1, #l2, #bow1').css({
+								'opacity'					: '0',
 							});
 							setTimeout(function(){
 								$('#bow1').css({
-									'transform'					: 'translateY(190px)',
-									'opacity'					: '1',
+									'transform'					: 'translateY(650px)',
 								});
-								$('#rings-1, #rings-2, #rings-3').css('opacity', '1');
-									setTimeout(function(){
-										$('#rings-1, #rings-2, #rings-3').css('opacity', '0');
-										$('#bow1').css('transform', 'translateY(0px)');
-										$('#r1, #r2, #l1, #l2, #bow1').css({
-											'opacity' 		: '1',
-											'transition' 	: '0s',
-										});
-										$('#r1, #r2, #l1, #l2').css({
-											'transform'		: 'translateY(-0) translateX(0) scale3d(1,1,1)',
-											'stroke-width'	: '14'
-										});
-										$('#target').css('transform' , 'rotate(0deg)')
-									},1500);
-							},600);
-						},300);
-					},200);
+								setTimeout(function(){
+									$('#bow1').css({
+										'transform'					: 'translateY(190px)',
+										'opacity'					: '1',
+									});
+									$('#rings-1, #rings-2, #rings-3').css('opacity', '1');
+										setTimeout(function(){
+											$('#rings-1, #rings-2, #rings-3').css({
+												'opacity'		: '0',
+												'transition'	: '0s all'
+											});
+											$('#bow1').css('transform', 'translateY(0px)');
+											$('#r1, #r2, #l1, #l2, #bow1').css({
+												'opacity' 		: '1',
+												'transition' 	: '0s',
+											});
+											$('#r1, #r2, #l1, #l2').css({
+												'transform'		: 'translateY(-0) translateX(0) scale3d(1,1,1)',
+												'stroke-width'	: '14'
+											});
+											$('#target').css('transform' , 'rotate(0deg)')
+										},1500);
+								},800);
+							},300);
+						},200);
+					},220);
+
 				},100);
 			},2250);
 		},1000);
@@ -148,7 +140,8 @@ $(function(){
 							})
 							setTimeout(function(){
 								$('#square, #t1, #t2, #b1, #b2').css({
-									'opacity'			: '0'
+									'opacity'			: '0',
+									'transition'		: '0s'
 								})
 								setTimeout(function(){
 									$('#t1, #t2, #b1, #b2, .b, .t').css({
@@ -160,8 +153,8 @@ $(function(){
 											'stroke-width'		: '14'
 										})
 										$('#line').css("d", "path('M 200 16 L 200 386')");							
-									},1000);			
-								},1000);
+									},500);			
+								},500);
 							},500);
 						},750);
 				},1000);
@@ -170,15 +163,20 @@ $(function(){
 	});
 
 	$('.start-3, svg').click(function(){
-		$('#target').css({
+		$('#target3').css({
 			'transition' 		: '1s transform',
-			'transform' 		: 'rotate(-90deg)',
-			'transform-origin'	: '50% 50%',		
+			'transform' 		: 'rotate(-90deg) scale(.8)',
+			'transform-origin'	: '50% 50% 0',	
 		});
+		$('#circle-big').css({
+			'opacity'			: '1',
+			'transition'		: '.5s all',
+			'transition-delay'	: '.5s'
+		})
 		setTimeout(function(){
 			$('#circle, #right, #left').css({
-				'transform' 		: 'scale(.8)',
-				'transform-origin'	: '50% 50%',
+				'transform' 		: 'scale(1)',
+				'transform-origin'	: '50% 50% 0',
 			});
 			setTimeout(function(){
 				$('#bow3').css("d", "path('M200,16 L200,1000')");
@@ -190,12 +188,26 @@ $(function(){
 							'transform' 		: 'scale(1)',
 							'transform-origin'	: '50% 50%',
 						});
-					},2000);
+						setTimeout(function(){
+							$('#bow3').css("d", "path('M 200 16 L 200 386')");
+							$('#key').css('opacity', '0')
+							$('#key-arr').css('opacity', '0')
+							setTimeout(function(){
+								$('#target3').css({
+									'transition' 		: '1s transform',
+									'transform' 		: 'rotate(0) scale(1)',
+									'transform-origin'	: '50% 50% 0',	
+								});
+								$('#circle-big').css({
+									'opacity'			: '0',
+									'transition'		: '.5s all'
+								})
+							},1000);
+						},1000);
+					},1000);
 				},1000);
 			},1000);
-		},1000);
+		},500);
 	});
 });
-				
-
 
